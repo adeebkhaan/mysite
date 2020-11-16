@@ -1,0 +1,24 @@
+{% extends 'news/master.html' %}
+
+{% block heading %}
+	<h1 class="front-page-heading" align="center">All News Articles of {{ article_year }}</h1>
+{% endblock %}
+
+{% block body %}
+	<div class="row">
+		<div class="col-12">
+			
+			<ul>
+				{% for each_article_by_year in articles_by_year %}
+				<li class="articles_by_year">
+					<h3>{{ each_article_by_year }}&nbsp;&nbsp;&nbsp; <a href="{% url 'news:details' each_article_by_year.id %}" class="btn">Details</a></h3>
+
+				</li>
+				{% empty %}
+					<h3><li>No Articles of {{ article_year }}</li></h3>
+				{% endfor %}
+			</ul>
+			
+		</div>
+	</div>
+{% endblock %}

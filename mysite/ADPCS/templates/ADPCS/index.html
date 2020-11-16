@@ -1,0 +1,10 @@
+{% extends 'ADPCS/master.html' %}
+
+{% block body %}
+	<h1 align="center">Welcome to ADPCS!</h1>
+	<hr>
+	<p>What do you want see?</p>
+	<a href="{% url 'ADPCS:students' %}">All Students</a>&nbsp;
+	<strong>OR</strong>&nbsp;
+	<a href="{% url 'ADPCS:groups' %}">Groups</a>
+{% endblock %}

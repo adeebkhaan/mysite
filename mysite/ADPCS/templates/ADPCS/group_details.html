@@ -1,0 +1,26 @@
+{% extends 'ADPCS/master.html' %}
+
+{% block body %}
+	<h1>{{ group.name }}</h1>
+	<hr>
+	Members :
+	<ul>
+		{% for member in members %}
+		<li>{{ member.name }}</li>
+		{% endfor %}
+	</ul>
+	Creation date :{{ group.created_at }}
+	<br>
+	<hr>
+	<h2>Add Members to this group</h2>
+	<form action="{% url 'ADPCS:add_in_group' group.id %}" method="post">
+		{% csrf_token %}
+		<select name="member">
+			{% for members in non_members %}
+				<option value="{{ members.id }}">{{ members.name }}</option>
+			{% endfor %}
+		</select>
+		<input type="submit" value="Add">
+	</form>
+	<a href="{% url 'ADPCS:groups' %}">Back</a>
+{% endblock %}

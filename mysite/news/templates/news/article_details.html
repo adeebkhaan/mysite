@@ -1,0 +1,24 @@
+{% extends 'news/master.html' %}
+
+{% block heading %}
+	<h1 class="front-page-heading">{{ article_details.headline }}!</h1>
+	<p>{{ article_details.date }}</p>
+{% endblock %}
+
+{% block body %}
+	<div class="row">
+		<div class="col-6">
+			<h2>Details:</h2>
+			<p>{{ article_details.content }}</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-6">
+			
+		</div>
+		<div class="col-3 reporter">
+			<b>Reporter:-</b>&nbsp;&nbsp;{{ article_details.reporter }}
+		</div>
+	</div>
+	<a href="{% url 'news:index' %}">Back</a>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'ADPCS/master.html' %}
+
+{% block body %}
+	<h1>All Students: {{ students.last.id }}</h1>
+	<hr>
+	<ul>
+		{% for student in students %}
+			<a href="{% url 'ADPCS:student_details' student.id %}"><li>{{ student.name }}</li></a>
+		{% endfor %}
+	</ul>
+	<hr>
+	<h2>Do you want to enroll yourself?</h2>
+	<form action="{% url 'ADPCS:enroll' %}" method="post">
+		{% csrf_token %}
+		<label>Name : </label>
+		<input type="text" name="name" required="required">
+		<label>Email : </label>
+		<input type="email" name="email" required="required">
+		<label>Age : </label>
+		<input type="number" name="age" required="required">
+		<input type="submit" value="Submit">
+	</form>
+	<a href="{% url 'ADPCS:index' %}">Back</a>
+{% endblock %}

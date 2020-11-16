@@ -1,0 +1,17 @@
+{% extends 'flights/master.html' %}
+
+{% block body %}
+
+	<h1>All Flights</h1>
+	
+	<ul>
+		{% for flight in Allflights %}
+			<li>{{ flight }}</li>
+			<a href="{% url 'flights:flight' flight.id %}">Details</a>
+			{% empty %}
+			<li> No flights. </li>
+		{% endfor %}
+
+	</ul>
+	
+{% endblock %}

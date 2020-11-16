@@ -1,0 +1,16 @@
+{% extends 'news/master.html' %}
+
+{% block heading %}
+	<h1 class="front-page-heading" align="center">All News Articles!</h1>
+{% endblock %}
+
+{% block body %}
+	<div class="row">
+		{%for article in articles %}
+		<div class="col-3">
+			<h4>{{ article }}</h4>
+			<a href="{% url 'news:details' article.id %}">Details</a>
+		</div>
+		{% endfor %}
+	</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'ADPCS/master.html' %}
+
+{% block body %}
+	<h1>{{ student.name }}</h1>
+	<hr>
+	<ul>
+			<li>Roll No : {{ student.id }}</li>
+			<li>Email Address : {{ student.email }}</li>
+			<li>Age : {{ student.age }}</li>
+			<li>Member of:
+				<ul>
+					{% for group in groups %}
+					<li>{{ group }}</li>
+					{% empty %}
+					<li>Not a member of any group yet.</li>
+					{% endfor %}
+				</ul>
+			</li>
+	</ul>
+	<a href="{% url 'ADPCS:students' %}">Back</a>
+{% endblock %}
